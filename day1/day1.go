@@ -23,6 +23,23 @@ func Expenses() int {
 	return -1
 }
 
+// Expenses3 calculates solution for day 1b. Find three numbers summing up to 2020, multiply them.
+func Expenses3() int {
+	numbers := getNumbers()
+	for idx, number := range numbers {
+		for jdx, candidate := range numbers[idx+1:] {
+			for _, candidate2 := range numbers[idx+jdx+2:] {
+				if number+candidate+candidate2 == 2020 {
+					fmt.Printf("Numbers that sum to 2020 are %d, %d and %d\n", number, candidate, candidate2)
+					return number * candidate * candidate2
+				}
+			}
+		}
+	}
+	log.Fatal("Could not find three numbers summing to 2020. :( Bye.")
+	return -1
+}
+
 // getNumbers parses the input file and appends each line as an integer to the result slice
 func getNumbers() []int {
 
