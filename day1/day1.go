@@ -2,7 +2,6 @@ package day1
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -14,7 +13,6 @@ func Expenses() int {
 	for idx, number := range numbers {
 		for _, candidate := range numbers[idx+1:] {
 			if number+candidate == 2020 {
-				fmt.Printf("Numbers that sum to 2020 are %d and %d\n", number, candidate)
 				return number * candidate
 			}
 		}
@@ -30,7 +28,6 @@ func Expenses3() int {
 		for jdx, candidate := range numbers[idx+1:] {
 			for _, candidate2 := range numbers[idx+jdx+2:] {
 				if number+candidate+candidate2 == 2020 {
-					fmt.Printf("Numbers that sum to 2020 are %d, %d and %d\n", number, candidate, candidate2)
 					return number * candidate * candidate2
 				}
 			}
