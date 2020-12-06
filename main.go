@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"gitlab.com/LukaPG/advent-of-code-2020/day1"
-	"gitlab.com/LukaPG/advent-of-code-2020/day2"
-	"gitlab.com/LukaPG/advent-of-code-2020/day3"
-	"gitlab.com/LukaPG/advent-of-code-2020/day4"
-	"gitlab.com/LukaPG/advent-of-code-2020/day5"
-	"gitlab.com/LukaPG/advent-of-code-2020/day6"
+	"github.com/LukaPrebil/advent-of-code-2020/day1"
+	"github.com/LukaPrebil/advent-of-code-2020/day2"
+	"github.com/LukaPrebil/advent-of-code-2020/day3"
+	"github.com/LukaPrebil/advent-of-code-2020/day4"
+	"github.com/LukaPrebil/advent-of-code-2020/day5"
+	"github.com/LukaPrebil/advent-of-code-2020/day6"
 )
 
 func main() {
@@ -17,5 +17,5 @@ func main() {
 	fmt.Printf("Solution for 3rd day:\n\tPart 1: %d\n\tPart 2: %d\n", day3.CountTrees(), day3.MinimizeStops())
 	fmt.Printf("Solution for 4th day:\n\tPart 1: %d\n\tPart 2: %d\n", day4.ValidatePassports(), day4.ValidatePassportsStrong())
 	fmt.Printf("Solution for 5th day:\n\tPart 1: %d\n\tPart 2: %d\n", day5.GetMaxSeatID(), day5.GetMySeatID())
-	fmt.Printf("Solution for 6th day:\n\tPart 1: %d\n\tPart 2: %d\n", day6.SumGroupAnswersAnyone(), -1)
+	fmt.Printf("Solution for 6th day:\n\tPart 1: %d\n\tPart 2: %d\n", day6.SumGroupAnswersAnyone(), day6.SumGroupAnswersEveryone())
 }

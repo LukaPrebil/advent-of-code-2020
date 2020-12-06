@@ -24,6 +24,18 @@ func dedupeDeclaration(s string) mapset.Set {
 	return declSet
 }
 
+func getNumberOfCommonAnswers(declarationPerMember []string) int {
+	commonDeclarations := mapset.NewSet()
+	for i, decl := range declarationPerMember {
+		if i == 0 { // Setup the initial condition to be the set of first answers
+			commonDeclarations = commonDeclarations.Union(dedupeDeclaration(decl))
+		} else { // Keep intersecting the set with other answers to get the common ones
+			commonDeclarations = commonDeclarations.Intersect(dedupeDeclaration(decl))
+		}
+	}
+	return commonDeclarations.Cardinality()
+}
+
 func getNumberOfUniqueAnswers(declaration mapset.Set) int {
 	return declaration.Cardinality()
 }

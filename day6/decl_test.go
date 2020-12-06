@@ -71,6 +71,65 @@ func TestDedupeEmpty(t *testing.T) {
 	}
 }
 
+func TestCommonAnswers(t *testing.T) {
+	input := []string {"abcd", "abc", "bcd"}
+	expectedResult := 2
+
+	result := getNumberOfCommonAnswers(input)
+
+	if expectedResult != result {
+		t.Errorf("Incorrectly calculated common answers, expected: %d, but got %d", expectedResult, result)
+	}
+}
+
+func TestCommonAnswersWithDuplicates(t *testing.T) {
+	input := []string {"aabcd", "abbc", "bccdd"}
+	expectedResult := 2
+
+	result := getNumberOfCommonAnswers(input)
+
+	if expectedResult != result {
+		t.Errorf("Incorrectly calculated common answers, expected: %d, but got %d", expectedResult, result)
+	}
+}
+
+func TestNoCommonAnswers(t *testing.T) {
+	input := []string {"abcd", "abc", "d"}
+	expectedResult := 0
+
+	result := getNumberOfCommonAnswers(input)
+
+	if expectedResult != result {
+		t.Errorf("Incorrectly calculated common answers, expected: %d, but got %d", expectedResult, result)
+	}
+}
+
+func TestCommonAnswersOneAnswer(t *testing.T) {
+	input := []string {"abcd"}
+	expectedResult := 4
+
+	result := getNumberOfCommonAnswers(input)
+
+	if expectedResult != result {
+		t.Errorf("Incorrectly calculated common answers, expected: %d, but got %d", expectedResult, result)
+	}
+}
+
+func TestCommonAnswersNoAnswers(t *testing.T) {
+	input := []string {}
+	expectedResult := 0
+
+	result := getNumberOfCommonAnswers(input)
+
+	if expectedResult != result {
+		t.Errorf("Incorrectly calculated common answers, expected: %d, but got %d", expectedResult, result)
+	}
+}
+
+
+
+// --------- Utils ---------
+
 // setsDiffer performs Difference on both sets, and checks that the resulting set Cardinality is not 0 (there is something in the difference set)
 func setsDiffer(first, second mapset.Set) bool {
 	return first.Difference(second).Cardinality() != 0
